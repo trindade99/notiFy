@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 
@@ -20,7 +21,7 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
 
     fun addUser(user: User){
 
-        viewModelScope.launch(Dispatchers.IO){ this: CoroutineScope
+        viewModelScope.launch(Dispatchers.IO){
             repository.addUser(user)
         }
     }
