@@ -15,4 +15,8 @@ class NoteRepository(var noteDao: NoteDao) {
     suspend fun updateUser(note: Note){
         noteDao.updateUser(note)
     }
+
+    suspend fun deleteUser(note: Note){
+        noteDao.deleteUser(note)
+    }
 }

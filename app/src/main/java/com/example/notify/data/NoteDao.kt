@@ -10,8 +10,11 @@ interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addUser(note: Note)
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
+    @Update
     fun updateUser(note: Note)
+
+    @Delete
+    fun deleteUser(note: Note)
 
     @Query(value = "SELECT * FROM user_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Note>>

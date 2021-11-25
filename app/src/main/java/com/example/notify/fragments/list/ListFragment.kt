@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notify.R
 import com.example.notify.viewModel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
@@ -28,8 +30,10 @@ class ListFragment : Fragment() {
         //Recycler view
         val adapter = ListAdapter()
         val recyclerView = view.recyclerview
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         // UserViewModel
         mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
@@ -44,5 +48,6 @@ class ListFragment : Fragment() {
 
         return view
     }
+
 
 }

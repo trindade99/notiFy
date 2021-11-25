@@ -1,5 +1,6 @@
 package com.example.notify.fragments.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -39,7 +40,26 @@ class UpdateFragment : Fragment() {
             updateItems()
         }
 
+        view.delete_btn.setOnClickListener(){
+            deleteItem()
+        }
+
         return view
+    }
+
+    private fun deleteItem() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Delete"){_,_->
+            mNoteViewModel.deleteUser(args.currentNote)
+            Toast.makeText(requireContext(),"Note Deleted with Success", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("Cancel"){_,_->
+
+        }
+        builder.setTitle("Delete ${args.currentNote.Title} note?")
+        builder.setMessage("Are you sure you wanto to delete ${args.currentNote.Title}")
+        builder.create().show()
     }
 
 
