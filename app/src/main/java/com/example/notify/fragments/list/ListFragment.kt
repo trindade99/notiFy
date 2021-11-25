@@ -10,14 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notify.R
-import com.example.notify.data.User
-import com.example.notify.data.UserViewModel
+import com.example.notify.viewModel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
 class ListFragment : Fragment() {
 
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mNoteViewModel: NoteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +32,8 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
+        mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        mNoteViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
             adapter.setData(user)
         })
 

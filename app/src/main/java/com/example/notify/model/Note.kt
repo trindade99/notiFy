@@ -1,14 +1,17 @@
-package com.example.notify.data
+package com.example.notify.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "user_table")
 
-data class User(
+data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val UserName: String,
     val Title: String,
     val Body: String
-)
+): Parcelable
