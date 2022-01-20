@@ -2,54 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/row_Layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16sp"
-    android:backgroundTint="@color/cardview_shadow_end_color">
+    android:padding="24sp"
+    android:id="@+id/rowLayout">
 
-    <TextView
-        android:id="@+id/id_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:textColor="#00FFFFFF"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Note for Dummies"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/preview_txt"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/userName_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VicLopes"
-        app:layout_constraintEnd_toEndOf="@+id/preview_txt"
-        app:layout_constraintTop_toTopOf="@+id/title_txt" />
-
-    <TextView
-        android:id="@+id/preview_txt"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:ellipsize="end"
-        android:maxLength="120"
-        android:maxLines="1"
-        android:text="That's just a test note for seeing is the layout is working fine. That's just a test note for seeing is the layout is working fine. That's just a test note for seeing is the layout is working fine."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_txt" />
-
+    <LinearLayout
+        android:id="@+id/main_layout_notes_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left"
+        android:padding="0dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/note_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:text="Title"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,36 +1,35 @@
-package com.example.notify.data
+package com.example.notify.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.notify.model.Note
+import com.example.notify.data.dao.NoteDao
+import com.example.notify.data.entities.Note
 
+@Database(entities = [Note :: class], version = 1, exportSchema = false)
+abstract class NoteDatabase : RoomDatabase(){
 
-@Database(entities = [Note::class], version = 1, exportSchema = false)
-abstract class NoteDatabase : RoomDatabase() {
+    abstract  fun  noteDao(): NoteDao
 
-    abstract fun userDao(): NoteDao
-
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: NoteDatabase? = null
 
         fun getDatabase(context: Context): NoteDatabase{
             val tempInstance = INSTANCE
-            if (tempInstance != null){
+            if(tempInstance != null){
                 return tempInstance
             }
-            kotlin.synchronized(this){
+            synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     NoteDatabase::class.java,
-                    "user_database"
+                    "note_database"
                 ).build()
                 INSTANCE = instance
                 return instance
             }
         }
     }
-
 }

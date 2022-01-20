@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    android:label="@string/notes_list"
+    app:startDestination="@id/userLoginFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.notify.fragments.list.ListFragment"
+        android:label="@string/notes_list"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.notify.fragments.add.AddFragment"
+        android:label="@string/add_note"
+        tools:layout="@layout/fragment_add">
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.notify.fragments.update.UpdateFragment"
+        android:label="@string/update_note">
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentNote"
+            app:argType="com.example.notify.data.entities.Note" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportsListFragment"
+        android:name="com.example.notify.fragments.reports_list.ReportsListFragment"
+        android:label="@string/reports_list"
+        tools:layout="@layout/fragment_reports_list">
+        <action
+            android:id="@+id/action_reportsListFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+        <action
+            android:id="@+id/action_reportsListFragment_to_updateReportFragment"
+            app:destination="@id/updateReportFragment" />
+        <action
+            android:id="@+id/action_reportsListFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.example.notify.fragments.login.UserLoginFragment"
+        android:label="@string/Login"
+        tools:layout="@layout/fragment_user_login">
+        <action
+            android:id="@+id/action_userLoginFragment_to_reportsListFragment"
+            app:destination="@id/reportsListFragment" />
+        <action
+            android:id="@+id/action_userLoginFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateReportFragment"
+        android:name="com.example.notify.fragments.update_report.UpdateReportFragment"
+        android:label="@string/update_report"
+        tools:layout="@layout/fragment_update_report">
+        <action
+            android:id="@+id/action_updateReportFragment_to_reportsListFragment"
+            app:destination="@id/reportsListFragment" />
+        <argument
+            android:name="currentReport"
+            app:argType="com.example.notify.api_notify.model.Note" />
+        <action
+            android:id="@+id/action_updateReportFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addReportFragment"
+        android:name="com.example.notify.fragments.reports.add.AddReportFragment"
+        android:label="@string/add_report"
+        tools:layout="@layout/fragment_add_report">
+        <action
+            android:id="@+id/action_addReportFragment_to_reportsListFragment"
+            app:destination="@id/reportsListFragment" />
+        <action
+            android:id="@+id/action_addReportFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+    </fragment>
+</navigation>

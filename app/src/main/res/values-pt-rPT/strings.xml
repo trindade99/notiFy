@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes_list">Notas</string>
+    <string name="add_note">Nova nota</string>
+    <string name="update_note">Atualizar nota</string>
+    <string name="successfull_added_new_note">Nota inserida com succeso!</string>
+    <string name="note_updated_successfull">Nota atualizada com sucesso!</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="note_deleted_successfully">Nota eliminada com sucesso!</string>
+    <string name="delete">Eliminar nota</string>
+    <string name="question_delete_note">Tem a certeza que pretende eliminar esta nota?</string>
+    <string name="note">Nota</string>
+    <string name="empty_note">A nota não pode ser vazia!</string>
+    <string name="Login">Login</string>
+    <string name="error_resources_wrong_password">Palavra pass errada.</string>
+    <string name="uppdate">Atualizar</string>
+    <string name="api_error_something_went_wrong">Ups! Ago não correu como o esperado. Tente outra vez.</string>
+    <string name="api_error_report_not_found">O incidente não foi encontrado, provavelmente foi eliminado. Atualize os dados ou tente outra vez.</string>
+    <string name="api_error_authorisation_failed">Autorização falhada. Por favor volte a fazer login.</string>
+    <string name="api_error_wrong_login">Username ou password inválidos.</string>
+    <string name="username">Nome de utilizador</string>
+    <string name="signin">Iniciar sessão</string>
+    <string name="error_something_went_wrong">Ups! Ago não correu como o esperado. Tente outra vez.</string>
+    <string name="fill_username_and_password">Por favor preencha o nome de utilizador e a password!</string>
+    <string name="reports_list">Ocorrências</string>
+    <string name="ony_edit_your_reports">Ups! Apenas pode alterar ou eliminar as suas ocorrências.</string>
+    <string name="title">Título</string>
+    <string name="description">Descrição</string>
+    <string name="hello">Olá</string>
+    <string name="logout">Terminar sessão</string>
+    <string name="logout_question">Tem a certeza que pretende terminar sessão?</string>
+    <string name="refresh">Atualizar</string>
+    <string name="add_report">Nova ocorrência</string>
+    <string name="update_report">Atualizar ocorrência</string>
+    <string name="fill_title_and_description">Por favor preencha o título e a descrição da ocorrência!</string>
+    <string name="successfull_added_new_report">Ocorrência inserida com sucesso!</string>
+    <string name="delete_report">Eliminiar ocorrência</string>
+    <string name="question_delete_report">Tem a certeza que pretende eliminar esta ocorrência?</string>
+    <string name="successfull_deleted_report">Ocorrência eliminada com sucesso!</string>
+    <string name="successfull_updated_report">Ocorrência atualizada com sucesso!</string>
+    <string name="session_expired">Sessão expirada</string>
+    <string name="session_expired_message">Sessão expirada. Por favor inicie sessão.</string>
+    <string name="app_name">NotiFy</string>
+</resources>
