@@ -1,20 +1,19 @@
 package com.example.notify.fragments.add
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.notify.R
-import com.example.notify.model.Note
-import com.example.notify.viewModel.NoteViewModel
+import com.example.notify.data.entities.Note
+import com.example.notify.data.vm.NoteViewModel
+import com.example.notify.utils.Utils.Companion.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_add.*
-import kotlinx.android.synthetic.main.fragment_add.view.*
-
 
 class AddFragment : Fragment() {
 
@@ -27,38 +26,39 @@ class AddFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
-        mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        setHasOptionsMenu(true)
 
-        view.add_btn.setOnClickListener{
-            InsertDatatoDataBase()
-        }
+        mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
         return view
     }
 
-    private fun InsertDatatoDataBase() {
-        val userName = add_UserName.text.toString()
-        val textTitle = add_Title.text.toString()
-        val textContent = add_text.text.toString()
-
-        if (inputCheck(userName,textTitle,textContent))
-        {
-            //Create Note Object
-            //user stands for one note entry
-            val note = Note(0,userName,textTitle,textContent)
-            // add note to database
-            mNoteViewModel.addUser(note)
-            Toast.makeText(requireContext(),"Note Added with Success",Toast.LENGTH_LONG).show()
-            //back to main screen
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
-        }else
-        {
-            Toast.makeText(requireContext(),"No field can be blank ",Toast.LENGTH_LONG).show()
-        }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.add_menu, menu)
     }
 
-    private fun inputCheck(userName: String, textTitle: String, text: String): Boolean{
-        return !(TextUtils.isEmpty(userName) && TextUtils.isEmpty(textTitle) && TextUtils.isEmpty(text))
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        hideKeyboard()
+
+        if (item.itemId == R.id.menu_add) {
+            addNote()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun addNote(){
+        if(TextUtils.isEmpty(addNote.text.toString())){
+            Toast.makeText(requireContext(), getString(R.string.empty_note), Toast.LENGTH_LONG).show()
+        }
+        else {
+            val note = Note(0, addNote.text.toString())
+
+            mNoteViewModel.addNote(note)
+
+            Toast.makeText(requireContext(), getString(R.string.successfull_added_new_note), Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
+        }
     }
 
 

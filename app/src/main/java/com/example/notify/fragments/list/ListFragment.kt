@@ -1,24 +1,21 @@
 package com.example.notify.fragments.list
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.notify.R
-import com.example.notify.viewModel.NoteViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
+import com.example.notify.data.vm.NoteViewModel
 
+import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
 
-    private lateinit var mNoteViewModel: NoteViewModel
+    private  lateinit var mNoteViewModel: NoteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,27 +24,41 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
-        //Recycler view
+        setHasOptionsMenu(true)
+
+        // Recyclerview
         val adapter = ListAdapter()
         val recyclerView = view.recyclerview
-        val dividerItemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.addItemDecoration(dividerItemDecoration)
 
         // UserViewModel
         mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
-        mNoteViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
-            adapter.setData(user)
+        mNoteViewModel.readAllNotes.observe(viewLifecycleOwner, Observer { note ->
+            adapter.setData(note)
         })
 
-
-        view.floatingActionButton.setOnClickListener{
+        view.btn_add_new_note_from_list.setOnClickListener(){
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
         return view
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.user_login, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.user_login) {
+            openlogin()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private  fun openlogin(){
+        findNavController().navigate(R.id.action_listFragment_to_userLoginFragment)
+    }
 }

@@ -1,22 +1,22 @@
 package com.example.notify.repository;
 
 import androidx.lifecycle.LiveData;
-import com.example.notify.data.NoteDao
-import com.example.notify.model.Note
+import com.example.notify.data.dao.NoteDao
+import com.example.notify.data.entities.Note
 
 class NoteRepository(var noteDao: NoteDao) {
 
-    val readAllData: LiveData<kotlin.collections.List<Note>> = noteDao.readAllData()
+    val readAllData: LiveData<kotlin.collections.List<Note>> = noteDao.readAllNotes()
 
-    suspend fun addUser(note: Note){
-        noteDao.addUser(note)
+    suspend fun addNote(note: Note){
+        noteDao.addNote(note)
     }
 
-    suspend fun updateUser(note: Note){
-        noteDao.updateUser(note)
+    suspend fun updateNote(note: Note){
+        noteDao.updateNote(note)
     }
 
-    suspend fun deleteUser(note: Note){
-        noteDao.deleteUser(note)
+    suspend fun deleteNote(note: Note){
+        noteDao.deleteNote(note)
     }
 }

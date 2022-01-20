@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5sp"
+    android:id="@+id/rowLayout_reports_list">
+
+    <LinearLayout
+        android:id="@+id/main_layout_reports_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left"
+        android:padding="0dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/reports_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:text="Title"/>
+
+        <TextView
+            android:id="@+id/reports_list_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:text="Description"/>
+
+        <TextView
+            android:id="@+id/reports_list_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Data"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/reports_list_created_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Created by"
+            android:textSize="10dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
