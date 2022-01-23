@@ -56,6 +56,10 @@ class UpdateReportFragment : Fragment() {
             updateReport()
         }
 
+        if (item.itemId == R.id.open_map){
+            findNavController().navigate(R.id.action_listFragment_to_map)
+        }
+
         return super.onOptionsItemSelected(item)
     }
 

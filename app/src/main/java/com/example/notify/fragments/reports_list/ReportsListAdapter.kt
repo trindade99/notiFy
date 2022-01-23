@@ -38,7 +38,7 @@ class ReportsListAdapter(userIdInSession: String?) : RecyclerView.Adapter<Report
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = reportsList[position]
         holder.itemView.reports_list_title.text = currentItem.title
-        holder.itemVieww.reports_list_description.text = currentItem.description
+        holder.itemView.reports_list_description.text = currentItem.description
         holder.itemView.reports_list_created_at.text = currentItem.created_at
         holder.itemView.reports_list_created_by.text = currentItem.user_name
 

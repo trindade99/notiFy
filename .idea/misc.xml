@@ -20,6 +20,8 @@
         <entry key="app/src/main/res/layout/fragment_update.xml" value="0.28314140658378373" />
         <entry key="app/src/main/res/layout/fragment_update_report.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_user_login.xml" value="0.21295035856616268" />
+        <entry key="app/src/main/res/layout/map.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/newmap.xml" value="0.1133879781420765" />
         <entry key="app/src/main/res/layout/progessbar.xml" value="0.1" />
         <entry key="app/src/main/res/menu/add_menu.xml" value="0.15700325732899023" />
         <entry key="app/src/main/res/menu/add_menu_report.xml" value="0.15855263157894736" />

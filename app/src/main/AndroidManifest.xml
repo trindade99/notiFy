@@ -3,6 +3,8 @@
 package="com.example.notify">
 
 <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 <application
     android:allowBackup="true"
@@ -22,9 +24,10 @@ package="com.example.notify">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
+    <activity android:name=".Map" android:exported="false"></activity>
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyCxFIfx3PnwCIrOQmy1I8N4R5IReljHy7c" />
+        android:value="AIzaSyCiSh4VnnI1jemtZTytDoj2X7Wl6evey30" />
 </application>
 
 </manifest>

@@ -22,6 +22,12 @@
             app:destination="@id/userLoginFragment" />
     </fragment>
     <fragment
+        android:id="@+id/map"
+        android:name="com.example.notify.Map"
+        android:label="@string/add_note"
+        tools:layout="@layout/map">
+    </fragment>
+    <fragment
         android:id="@+id/addFragment"
         android:name="com.example.notify.fragments.add.AddFragment"
         android:label="@string/add_note"
@@ -49,6 +55,9 @@
         <action
             android:id="@+id/action_reportsListFragment_to_userLoginFragment"
             app:destination="@id/userLoginFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_map"
+            app:destination="@id/map" />
         <action
             android:id="@+id/action_reportsListFragment_to_updateReportFragment"
             app:destination="@id/updateReportFragment" />
@@ -82,6 +91,9 @@
         <action
             android:id="@+id/action_updateReportFragment_to_userLoginFragment"
             app:destination="@id/userLoginFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_map"
+            app:destination="@id/map" />
     </fragment>
     <fragment
         android:id="@+id/addReportFragment"
